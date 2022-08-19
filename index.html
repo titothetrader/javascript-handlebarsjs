@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="index.js" defer></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <title>Handlebars JS</title>
+    <style>
+        body {background-color: powderblue;}
+        h1   {color: blue;}
+        span {color: red;}
+        </style>
+</head>
+<body>
+
+    <div id="data-goes-here"></div>
+
+    <script id="myTemplate" type="text/x-handlebars-template">
+        <div>
+            <h1>Hello <span>{{name}}</span></h1>
+        </div>
+    </script>
+
+</body>
+
+<script>
+    var templateScript = Handlebars.compile($('#myTemplate').html());
+
+    var myData = {
+        "name": "Tito Sanchez",
+        "age": 39,
+        "languages": ["JavaScript", "React"]
+    };
+
+    $('#data-goes-here').html(templateScript(myData));
+</script>
+
+</html>
